@@ -9,7 +9,9 @@
   "author": "Ahmed Tariq",
   "license": "ISC",
   "dependencies": {
-    "nodemon": "^2.0.13",
     "slugify": "^1.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
   }
 }
