@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const text = fs.readFileSync('./inputdata/data.txt', 'utf-8');
 
-const textOut = 'Weiting in the file: ${text}.\nCreated on ${Date.now()}';
+const textout = `Writing in the file: ${text}.\nCreated on ${Date.now()}`;
 fs.writeFileSync('./inputdata/data.txt', textout)
 console.log('FIle written');
 console.log(text);
