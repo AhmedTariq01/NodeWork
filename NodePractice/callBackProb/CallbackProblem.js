@@ -7,6 +7,10 @@ fs.readFile(`dog.txt`, 'utf8', (err, data) => {
     superagent.get(`https://dog.ceo/api/breed/${data}/images/random`).end((err,res) =>{
 
         console.log(res.body.message);
+
+        fs.writeFile(`dogimg.txt`,  res.body.message, err => {
+            console.log('Image saved');
+        });
     });
         
 
