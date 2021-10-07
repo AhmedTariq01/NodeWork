@@ -9,6 +9,7 @@
   "author": "Ahmed Tariq",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "slugify": "^1.6.1",
     "superagent": "^6.1.0"
   },
