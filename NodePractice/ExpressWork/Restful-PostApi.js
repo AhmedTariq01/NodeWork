@@ -20,6 +20,35 @@ app.get('/api/v1/tours'  , (req, res) => {
     });
 });
 
+// only 1 at a time
+app.get('/api/v1/tours/:id'  , (req, res) =>{
+    
+    console.log(req.params);
+    const id = req.params.id * 1;
+    const tour = tours.find(el => el.id === id);
+
+    if (id > tours.length){
+        return res.status(404).json({
+            status: 'red',
+            message: 'Invalid ID'
+        });
+    }
+
+    if (!tours){
+        return res.status(404).json({
+            status: 'red',
+            message: 'Tour not found'
+        });
+    }
+
+    res.status(200).json({
+        status: 'green',
+        data:{
+            tour
+        }
+    });
+});
+
 app.post('/api/v1/tours', (req, res) => {
     // console.log(req.body);
 
