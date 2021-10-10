@@ -68,8 +68,21 @@ app.post('/api/v1/tours', (req, res) => {
 
 // patch to update data 
 
-app.patch('/api/v1/tour/:id', (req, res) => {
-    
+app.patch('/api/v1/tours/:id', (req, res) => {
+
+    if (req.params.id *1 > tours.length){
+        return res.status(404).json({
+            status: 'red',
+            message: 'Invalid ID'
+        });
+    }
+
+    res.status(200).json({
+        status: 'green',
+        data: {
+            tour: 'Update tour here'
+        }
+    })
 });
 
 const port = 3000;
