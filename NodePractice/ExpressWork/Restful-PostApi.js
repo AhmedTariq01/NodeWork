@@ -66,6 +66,12 @@ app.post('/api/v1/tours', (req, res) => {
     });
 });
 
+// patch to update data 
+
+app.patch('/api/v1/tour/:id', (req, res) => {
+    
+});
+
 const port = 3000;
 app.listen(port, () =>{
     console.log(`App listening on port ${port}`);
