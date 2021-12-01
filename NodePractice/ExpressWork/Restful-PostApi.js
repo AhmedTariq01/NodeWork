@@ -6,11 +6,17 @@ const app = express();
 // middleware to modify incoming req data
 app.use(express.json());
 
+app.use((req, res, next) =>{
+    console.log('MiddleWare listening');
+    next();
+});
+
+
 const tours =  JSON.parse(
     fs.readFileSync(`./dev-data/data/tours-simple.json`)
 );
 
-app.get('/api/v1/tours'  , (req, res) => {
+const getAllTours = (req, res) => {
     res.status(200).json({
         status: 'green', 
         results: tours.length ,
@@ -18,7 +24,9 @@ app.get('/api/v1/tours'  , (req, res) => {
             tours
         }
     });
-});
+};
+
+app.get('/api/v1/tours', getAllTours);
 
 // only 1 at a time
 app.get('/api/v1/tours/:id'  , (req, res) =>{
