@@ -119,15 +119,15 @@ const deleteTour = (req, res) =>{
 //  Calling All the routes
 // Refactoring the code method 1
 // getting all tours
-app.get('/api/v1/tours', getAllTours);
+// app.get('/api/v1/tours', getAllTours);
 //  getting tour by id
-app.get('/api/v1/tours/:id', getTour);
+// app.get('/api/v1/tours/:id', getTour);
 // creating a tour
-app.post('/api/v1/tours', createTour);
+// app.post('/api/v1/tours', createTour);
 // patch to update data 
-app.patch('/api/v1/tours/:id', updateTour);
+// app.patch('/api/v1/tours/:id', updateTour);
 // delete request
-app.delete('/api/v1/tours/:id', deleteTour);
+// app.delete('/api/v1/tours/:id', deleteTour);
 // implementing user routes
 // app.get('/api/v1/users', getAllUsers)
 
