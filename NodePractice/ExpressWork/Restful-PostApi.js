@@ -34,11 +34,11 @@ app.use((req, res, next) => {
 // delete request
 // app.delete('/api/v1/tours/:id', deleteTour);
 
-// Routers for tour
+// Routes for tour
 // middleware for the route
 app.use('/api/v1/tours', tourRouter);
 
-// Routers for user routes
+// Routes for user routes
 // middleware for the route
 app.use('/api/v1/users', usersRouter);
 
