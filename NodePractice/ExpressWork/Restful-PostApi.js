@@ -116,6 +116,46 @@ const deleteTour = (req, res) =>{
     })
 };
 
+//  getting all users
+const getAllUsers = (req, res) =>{
+    res.status(500).json({
+        status: 'error',
+        message: 'Route not implemented yet'
+    })
+}
+
+//  creating user
+const createUser = (req, res) =>{
+    res.status(500).json({
+        status: 'error',
+        message: 'Route not implemented yet'
+    })
+}
+
+//  getting  user
+const getUser = (req, res) =>{
+    res.status(500).json({
+        status: 'error',
+        message: 'Route not implemented yet'
+    })
+}
+
+//  update user
+const updateUser = (req, res) =>{
+    res.status(500).json({
+        status: 'error',
+        message: 'Route not implemented yet'
+    })
+}
+
+//  delete user
+const deleteUser = (req, res) =>{
+    res.status(500).json({
+        status: 'error',
+        message: 'Route not implemented yet'
+    })
+}
+
 //  Calling All the routes
 // Refactoring the code method 1
 // getting all tours
@@ -128,11 +168,6 @@ const deleteTour = (req, res) =>{
 // app.patch('/api/v1/tours/:id', updateTour);
 // delete request
 // app.delete('/api/v1/tours/:id', deleteTour);
-// implementing user routes
-// app.get('/api/v1/users', getAllUsers)
-
-// app.route('/api/v1/user/:id').get(getUser).patch(updateUser).delete(deleteUser);
-
 
 //  Calling All the routes
 // Refactoring the code method 2
@@ -150,9 +185,26 @@ app
 app
    .route('/api/v1/tour')
    .get(getTour)
-   .get(updateTour)
-   .get(deleteTour)
+   .patch(updateTour)
+   .delete(deleteTour)
 
+// implementing user routes
+
+// get all users
+// create user
+app
+   .route('/api/v1/users/:id')
+   .get(getAllUsers)
+   .post(createUser);
+
+// get user by id
+// update user
+// delete user
+app
+   .route('/api/v1/users/:id')
+   .get(getUser)
+   .patch(updateUser)
+   .delete(deleteUser);
 
 // Listening
 const port = 3000;
