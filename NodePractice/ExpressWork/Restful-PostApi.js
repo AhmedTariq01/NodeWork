@@ -1,21 +1,28 @@
 const express = require('express');
 const fs = require('fs');
-
+const morgan = require('morgan');
 const app = express();
-
+ 
+// MiddleWare
 // middleware to modify incoming req data
+app.use(morgan('dev'));
 app.use(express.json());
-
+//  show to details of Api response
 app.use((req, res, next) =>{
     console.log('MiddleWare listening');
     next();
 });
 
+app.use((req, res, next) => {
+    req.requestTime = new Date().toISOString();
+    next();
+})
 
 const tours =  JSON.parse(
     fs.readFileSync(`./dev-data/data/tours-simple.json`)
 );
 
+//  Route Handlers
 const getAllTours = (req, res) => {
     res.status(200).json({
         status: 'green', 
@@ -109,6 +116,7 @@ app.delete('/api/v1/tours/:id', (req, res) =>{
     })
 });
 
+// Listening
 const port = 3000;
 app.listen(port, () =>{
     console.log(`App listening on port ${port}`);
