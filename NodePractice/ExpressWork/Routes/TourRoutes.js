@@ -3,6 +3,9 @@ const tourDataController = require('./../RouteDataController/TourRouteData');
 // Routers for tour
 const tourRouter = express.Router();
 
+// middlleware for specific route
+tourRouter.param('id', tourDataController.CheckID);
+
 //  Calling All the routes
 // Refactoring the code method 2
 

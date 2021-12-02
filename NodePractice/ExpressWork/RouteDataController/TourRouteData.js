@@ -3,6 +3,19 @@ const tours = JSON.parse(
     fs.readFileSync(`./dev-data/data/tours-simple.json`)
 );
 
+// Param middleware
+exports.CheckID = (req, res, next, val) => {
+    console.log(`Tour id is: ${val} `);
+
+    if (req.params.id * 1 > tours.length) {
+        return res.status(404).json({
+            status: 'red',
+            message: 'Invalid ID'
+        });
+    }
+    next();
+};
+
 //  Route Handlers
 
 //  get all tours
@@ -23,19 +36,19 @@ exports.getTour = (req, res) => {
     const id = req.params.id * 1;
     const tour = tours.find(el => el.id === id);
 
-    if (id > tours.length) {
-        return res.status(404).json({
-            status: 'red',
-            message: 'Invalid ID'
-        });
-    }
+    // if (id > tours.length) {
+    //     return res.status(404).json({
+    //         status: 'red',
+    //         message: 'Invalid ID'
+    //     });
+    // }
 
-    if (!tours) {
-        return res.status(404).json({
-            status: 'red',
-            message: 'Tour not found'
-        });
-    }
+    // if (!tours) {
+    //     return res.status(404).json({
+    //         status: 'red',
+    //         message: 'Tour not found'
+    //     });
+    // }
 
     res.status(200).json({
         status: 'green',
@@ -68,12 +81,12 @@ exports.createTour = (req, res) => {
 // updating the tour
 exports.updateTour = (req, res) => {
 
-    if (req.params.id * 1 > tours.length) {
-        return res.status(404).json({
-            status: 'red',
-            message: 'Invalid ID'
-        });
-    }
+    // if (req.params.id * 1 > tours.length) {
+    //     return res.status(404).json({
+    //         status: 'red',
+    //         message: 'Invalid ID'
+    //     });
+    // }
 
     res.status(200).json({
         status: 'green',
@@ -85,13 +98,6 @@ exports.updateTour = (req, res) => {
 
 // deleting a tour
 exports.deleteTour = (req, res) => {
-    if (req.params.id * 1 > tours.length) {
-        return res.status(404).json({
-            status: 'red',
-            message: 'Invalid ID'
-        });
-    }
-
     res.status(200).json({
         status: 'green',
         data: null
