@@ -14,7 +14,7 @@ tourRouter.param('id', tourDataController.CheckID);
 tourRouter
     .route('/')
     .get(tourDataController.getAllTours)
-    .post(tourDataController.createTour);
+    .post(tourDataController.checkBody, tourDataController.createTour);
 
 //  getting tour by id
 // patch to update data 
