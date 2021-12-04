@@ -9,6 +9,8 @@ const usersRouter = require('./Routes/UserRoutes');
 // middleware to modify incoming req data
 app.use(morgan('dev'));
 app.use(express.json());
+// built-in middleware for static file
+app.use(express.static('./public'));
 
 //  show to details of Api response
 app.use((req, res, next) => {
